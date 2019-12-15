@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .block,
+        .block2,
+        .table-list {
+            border: 2px solid gray;
+            border-radius: 5px;
+            width: 900px;
+            min-height: 250px;
+            padding: 30px;
+            background: rgb(228, 223, 223);
+        }
+        
+        .table-list {
+            margin: 0 auto;
+        }
+        
+        .textArea {
+            width: 100%;
+        }
+        
+        .btn {
+            min-height: 30px;
+            min-width: 50px;
+            padding: 10px;
+            color: honeydew;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: 700;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        select {
+            width: 300px;
+            height: 30px;
+        }
+        
+        .chose-color {
+            display: flex;
+            flex-wrap: wrap;
+            width: 150px;
+            position: absolute;
+            right: 200px;
+            top: 150px;
+            visibility: hidden;
+        }
+        
+        .show {
+            visibility: unset;
+        }
+        
+        .block2 {
+            position: relative;
+        }
+        
+        .js-set-value {
+            width: 50px;
+            height: 50px;
+            border: none;
+            outline: 1px solid black;
+        }
+        
+        .table-creator {
+            padding: 15px;
+        }
+        
+        .table_count {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        
+        .creator-iputs {
+            height: 35px;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+        
+        .creator-description {
+            min-width: 100px;
+            min-height: 30px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+        
+        .top-content {
+            padding: 18px;
+        }
+        
+        h2 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+        
+        .border-select {
+            width: 150px;
+            height: 35px;
+        }
+        
+        .table-border {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .button-create {
+            min-width: 100px;
+            min-height: 35px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background: green;
+            font-weight: 700;
+            color: blanchedalmond;
+        }
+        
+        .list-select {
+            width: 100%;
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="main_wrap">
+        <div class="block " id="firstBlock">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vero?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, vero?</p>
+        </div>
+        <div class="buttons " id="buttonsMain">
+            <button class="btn" id="edit" style="background:rgb(226, 151, 11);">edit</button>
+            <button class="btn" id="stl" style="background: rgb(48, 105, 197);">style</button>
+        </div>
+
+        <div class="block2" id="secondBlock">
+            <div class="secondBlock-wrap hidden" id="secondWrap">
+                <textarea name="" id="mainArea" cols="90" rows="10" class="textArea"></textarea>
+                <button class="btn" id="addSmth" style="background: rgb(136, 23, 23);">add</button>
+                <button class="btn" id="saveSmth" style="background: rgb(4, 139, 4);">save</button>
+            </div>
+            <div class="styles hidden" id="secondBlockStyle">
+                <div class="font-size-wrap">
+                    <h4>Font size:</h4>
+                    <div class="font-sizes">
+                        <label>
+                                    <input type="radio" name="fontSizeValue" id="" value="12px">
+                                    12px
+                                </label>
+                        <label>
+                                        <input type="radio" name="fontSizeValue" id="" value="14px">
+                                        14px
+                                    </label>
+                        <label>
+                                            <input type="radio" name="fontSizeValue" id="" value="16px">
+                                            16px
+                                        </label>
+                        <label>
+                                                <input type="radio" name="fontSizeValue" id="" value="18px">
+                                                18px
+                                            </label>
+                        <label>
+                          <input type="radio" name="fontSizeValue" id="" value="20px">
+                           20px
+                            </label>
+                    </div>
+                </div>
+
+                <div class="fontfamily">
+                    <div class="fontfamily-wrap">
+                        <h4>Font family:</h4>
+                        <select name="" id="fontFamily">
+                                <option value="" selected>Choose option</option>
+                                <option value="cursive">cursive</option>
+                                <option value="fantasy">fantasy</option>
+                                <option value="monospase">monospase</option>
+                                <option value="sans-serif">sans-serif</option>
+                            </select>
+                    </div>
+                </div>
+
+
+                <div class="colors">
+                    <div class="colors-wrap">
+                        <h4>Colors:</h4>
+                        <div class="color-buttons">
+                            <button class="btn" id="colorForText" style="background-color: rgb(82, 80, 80);">Color of text</button>
+                            <button class="btn" id="colorForBg" style="background-color: rgb(82, 80, 80);">Background color</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-style">
+                    <div class="text-wrap">
+                        <h4>Styles:</h4>
+                        <div class="text-checkboxes">
+                            <label>
+                                    <input type="checkbox" name="" id="bold">
+                                    Bold text
+                                </label>
+                            <label>
+                                    <input type="checkbox" name="" id="cursive">
+                                    Cursive text
+                                </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="chose-color " id="colorsPopup">
+                <button class=" js-set-value" style="background-color:red"></button>
+                <button class=" js-set-value" style="background-color:blue"></button>
+                <button class=" js-set-value" style="background-color:green"></button>
+                <button class=" js-set-value" style="background-color:black"></button>
+                <button class=" js-set-value" style="background-color:orange"></button>
+                <button class=" js-set-value" style="background-color:pink"></button>
+                <button class=" js-set-value" style="background-color:white"></button>
+                <button class=" js-set-value" style="background-color:violet"></button>
+                <button class=" js-set-value" style="background-color:blueviolet"></button>
+            </div>
+        </div>
+    </div>
+    <div class="table-list hidden" id="tableListWrapper">
+        <div class="top-content">
+            <h2>Chose what you want</h2>
+            <label>
+        <input type="radio" name="createNewItem" id="tableCreateeRadio" value="table">
+      table
+    </label>
+            <label>
+            <input type="radio" name="createNewItem" id="listCreateeRadio" value="list">
+            list
+        </label>
+        </div>
+        <div class="table-creator hidden" id="tblcreate">
+            <div class="table_count">
+                <p class="creator-description">Count TR:</p>
+                <input type="number" class="creator-iputs" id="trCount" placeholder="Count TR">
+            </div>
+            <div class="table_count">
+                <p class="creator-description">Count Td:</p>
+                <input type="number" class="creator-iputs" id="tdCount" placeholder="Count Td">
+            </div>
+            <h3>Add style to your table:</h3>
+            <div class="table_count">
+                <p class="creator-description">Width of TD:</p>
+                <input type="number" class="creator-iputs" id="widthTD" placeholder="Width TD">
+            </div>
+            <div class="table_count">
+                <p class="creator-description">Height of TD:</p>
+                <input type="number" class="creator-iputs" id="heightTD" placeholder="Height TD">
+            </div>
+            <div class="table-border">
+                <div class="table_count">
+                    <p class="creator-description">Width of Border:</p>
+                    <input type="number" class="creator-iputs" id="borderWidth" placeholder="Width of Border">
+                </div>
+                <div class="table_count">
+                    <p class="creator-description">Type of border:</p>
+                    <select id="typeOfBorder" class="border-select">
+                        <option value="solid">Solid</option>
+                        <option value="dotted">Dotted</option>
+                    </select>
+                </div>
+                <div class="table_count">
+                    <p class="creator-description">Color of border:</p>
+                    <select id="colorOfBorder" class="border-select">
+                        <option value="black">Black</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+            </div>
+            <button class="button-create" id="cteateTabl">Create</button>
+        </div>
+        <div class="list-creator hidden" id="listCreate">
+            <div class="table_count">
+                <p class="creator-description">Count li:</p>
+                <input type="number" class="creator-iputs" id="countLi" placeholder="Count LI:">
+            </div>
+            <div class="table_count">
+                <p class="creator-description">Type of marks:</p>
+                <select id="styleOfMark" class="list-select">
+                <option value="circle">Circle</option>
+                <option value="disc">Disc</option>
+                <option value="square">Square</option>
+            </select>
+            </div>
+            <button class="button-create" id="cteateList">Create List</button>
+        </div>
+    </div>
+    <script>
+        const edit = document.getElementById('edit');
+        const styles = document.getElementById('stl');
+        const addNew = document.getElementById('addSmth');
+        const saveNew = document.getElementById('saveSmth');
+        const mainWrapper = document.getElementById('main_wrap');
+        const tableListWrap = document.getElementById('tableListWrapper');
+        const crtTbl = document.getElementById('tblcreate');
+        const crtLst = document.getElementById('listCreate');
+        const fontRadio = document.querySelectorAll('[name="fontSizeValue"]');
+
+        // text 
+        edit.addEventListener('click', e => {
+            secondWrap.classList.remove('hidden');
+            secondBlockStyle.classList.add('hidden');
+            mainArea.value = firstBlock.innerHTML;
+        });
+        saveNew.addEventListener('click', e => {
+            firstBlock.innerHTML = mainArea.value;
+            mainArea.value = '';
+            secondWrap.classList.add('hidden');
+        });
+        // style 
+        styles.addEventListener('click', e => {
+            secondWrap.classList.add('hidden');
+            secondBlockStyle.classList.remove('hidden');
+        });
+
+        // font-size font family font weight
+        for (let i = 0; i < fontRadio.length; i++) {
+            fontRadio[i].addEventListener("change", e => {
+                if (fontRadio[i].checked) {
+                    firstBlock.style.fontSize = fontRadio[i].value;
+
+                }
+            })
+        };
+        fontFamily.addEventListener("change", e => {
+            firstBlock.style.fontFamily = fontFamily.value;
+        });
+
+        bold.addEventListener('change', e => {
+
+            bold.checked ? firstBlock.style.fontWeight = 'bold' : firstBlock.style.fontWeight = 'normal';
+        });
+        cursive.addEventListener('change', e => {
+
+            cursive.checked ? firstBlock.style.fontStyle = 'italic' : firstBlock.style.fontStyle = 'normal';
+        });
+
+        // colors 
+        let currentInject = null;
+
+        function colorHandler(colorType) {
+            currentInject = colorType;
+            colorsPopup.classList.add('show');
+            document.addEventListener('click', e => {
+                const target = e.target;
+                if (target.classList.contains('js-set-value')) {
+                    const color = getComputedStyle(target).backgroundColor;
+                    firstBlock.style[currentInject] = color;
+                    colorsPopup.classList.remove('show');
+                }
+            })
+        };
+        colorForText.addEventListener('click', e => {
+            colorHandler('color');
+        });
+        colorForBg.addEventListener('click', e => {
+            colorHandler('backgroundColor');
+        });
+        //
+        //   
+        addNew.addEventListener('click', e => {
+            mainWrapper.classList.add('hidden');
+            tableListWrap.classList.remove('hidden');
+        })
+
+        tableCreateeRadio.addEventListener('change', e => {
+                crtTbl.classList.remove('hidden');
+                crtLst.classList.add('hidden');
+            })
+            //    
+        function createTable() {
+            let newTable = document.createElement('table');
+            for (let i = 0; i < tdCount.value; i++) {
+                let tr = document.createElement('tr');
+                newTable.append(tr);
+                for (let x = 0; x < trCount.value; x++) {
+                    let td = document.createElement('td');
+                    td.style.width = `${widthTD.value}px`;
+                    td.style.height = `${heightTD.value}px`;
+                    td.style.border = `${borderWidth.value}px ${typeOfBorder.value} ${colorOfBorder.value}`;
+                    tr.append(td);
+                }
+            }
+
+            mainArea.value += newTable.outerHTML;
+
+            document.head.append(style);
+        }
+
+        function switchClases() {
+            tableListWrap.classList.add('hidden');
+            mainWrapper.classList.remove('hidden');
+        }
+        cteateTabl.addEventListener('click', e => {
+            switchClases();
+            createTable();
+        });
+        listCreateeRadio.addEventListener('change', e => {
+            crtLst.classList.remove('hidden');
+            crtTbl.classList.add('hidden');
+        });
+
+        function createList() {
+            let newList = document.createElement('ul');
+            newList.style.listStyleType = styleOfMark.value;
+            for (let z = 0; z < countLi.value; z++) {
+                let listElementLi = document.createElement('li');
+                listElementLi.innerText = ' item';
+                newList.append(listElementLi);
+            }
+            mainArea.value += newList.outerHTML;
+        }
+
+
+        cteateList.addEventListener('click', e => {
+            switchClases();
+            createList();
+        });
+    </script>
+</body>
+
+</html>
